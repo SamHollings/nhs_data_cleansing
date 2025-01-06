@@ -1,0 +1,5 @@
+inflection
+pyspark
+pandas
+pytest
+pytest-spark
