@@ -1,5 +1,5 @@
 # nhs_data_cleansing
-![workflow_status](https://github.com/SamHollings/nhs_data_cleansing/workflows/main.yml/badge.svg?event=push) ![Static Badge](https://img.shields.io/badge/status-development-blue) [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![CI](https://github.com/SamHollings/nhs_data_cleansing/actions/workflows/main.yml/badge.svg)](https://github.com/SamHollings/nhs_data_cleansing/actions/workflows/main.yml) ![Static Badge](https://img.shields.io/badge/status-development-blue) [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Description
