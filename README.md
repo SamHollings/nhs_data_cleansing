@@ -15,7 +15,8 @@ pip install nhs-data-cleansing
 Generally, simply add `nhs-data-cleansing` to your list of dependencies/requirements, then install the package.
 
 > [!NOTE]
-> It's best practice to specify a version of the library in your list of dependencies - then when 
+> It's best practice to specify a version of the library in your list of dependencies - then when the package is updated, your existing work will not be affected.
+> The verion numbers may need to be updated in the future, particularly if you want to use newer functionality.
 
 ### pip
 Add `nhs-data-cleansing` to a `requirements.txt` file within the project, and then do `pip install -r requirements.txt`
