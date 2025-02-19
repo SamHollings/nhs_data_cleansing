@@ -1,3 +1,5 @@
+"""This module contains cleaning functions"""
+
 from datetime import datetime
 from typing import Union
 
@@ -7,13 +9,47 @@ from pyspark.sql import functions as F
 from pyspark.sql import types as T
 
 
-def check_nhs_number(df: DataFrame, num_col: str, result_col: str):
-    """
-    Adds a column indicating if the num_col is a valid nhs number using the checksum
-    df: the dataframe to use
-    num_col: the column containing the possible nhs number
-    result_col: the name of the new boolean column to add, true if the num_col is a valid
-    nhs number, otherwise false
+def check_nhs_number(df: DataFrame, num_col: str, result_col: str) -> DataFrame:
+    """Adds a column indicating if the input column contains valid NHS numbers.
+
+    The function calculates the checksum of the NHS number and compares it
+    with the last digit to determine validity.  It handles cases where the
+    checksum calculation results in 11 (which should become 0).
+
+    Parameters
+    ----------
+    df : DataFrame
+        The input DataFrame.
+    num_col : str
+        The name of the column containing the potential NHS numbers.
+    result_col : str
+        The name of the new boolean column to add.  `True` indicates a
+        valid NHS number, `False` otherwise.
+
+    Returns
+    -------
+    DataFrame
+        The input DataFrame with the added boolean column.
+
+    Raises
+    ------
+    TypeError
+        If `df` is not a Spark DataFrame.
+    TypeError
+        If `num_col` or `result_col` are not strings.
+
+    # Examples
+    # --------
+    # >>> from pyspark.sql import SparkSession
+    # >>> spark = SparkSession.builder.appName("NHSNumberCheck").getOrCreate()
+    # >>> df = spark.createDataFrame([("1234512343",)], ["nhs_number"])
+    # >>> df = check_nhs_number(df, "nhs_number", "is_valid")
+    # >>> df.show()
+    # +----------+--------+
+    # |nhs_number|is_valid|
+    # +----------+--------+
+    # |1234512343|    true|
+    # +----------+--------+
     """
 
     # Sum up the digits using weighting factors
