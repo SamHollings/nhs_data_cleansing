@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+# `isort` configurations
+[tool.isort]
+profile = "black"
+
+# `pytest` configurations
+[tool.pytest.ini_options]
+addopts = [
+    "-v",
+    "--doctest-modules",
+    "--doctest-report=cdiff",
+    "--doctest-continue-on-failure"
+]
+doctest_optionflags = "NORMALIZE_WHITESPACE"
+testpaths = [
+    "tests",
+    "src"
+]
