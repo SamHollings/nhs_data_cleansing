@@ -24,3 +24,5 @@ jobs:
       id: pytest
       run: |
         python -m pytest
+    - name: Test build package
+      run: python -m build
