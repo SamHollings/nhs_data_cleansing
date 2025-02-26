@@ -4,15 +4,25 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "nhs_data_cleansing"
-# version = 0.1.0-a2
-dynamic = ['version', 'dependencies']
-authors = [{name = "Sam Hollings", email = "sam.hollings1@nhs.net"}]
+version = "0.1.0-a4"
 description = "Common NHS Python (PySpark) functions for data cleansing"
-readme = {file = "README.txt", content-type = "text/markdown"}
-# url = ###
+authors = [{name = "Sam Hollings", email = "sam.hollings1@nhs.net"}]
+readme = "README.md"
 keywords = ["PySpark", "cleansing", "validation", "data engineering"]
-license = {file = "LICENSE.md"}
+license = {file = "LICENCE.md"}
 classifiers = ["Programming Language :: Python :: 3"]
+dependencies = [
+    "inflection",
+    "pyspark",
+    "pandas",
+    "pytest",
+    "pytest-spark",
+    "black",
+    "isort",
+    "build",
+    "setuptools-scm",
+]
+dynamic = ['version']
 
 [project.urls]
 Repository = "https://github.com/SamHollings/nhs_data_cleansing"
@@ -21,9 +31,6 @@ Issues = "https://github.com/SamHollings/nhs_data_cleansing/issues"
 # `isort` configurations
 [tool.isort]
 profile = "black"
-
-[tool.setuptools.dynamic]
-dependencies = {file = ["requirements.txt"]}
 
 # `pytest` configurations
 [tool.pytest.ini_options]
