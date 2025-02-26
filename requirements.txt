@@ -8,3 +8,4 @@ isort
 
 #build
 build
+setuptools-scm
